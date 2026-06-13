@@ -120,6 +120,7 @@ module.exports = async (request, response) => {
   try {
     if (request.method === 'POST') {
       bot.processUpdate(request.body)
+      await new Promise(resolve => setTimeout(resolve, 2000))
     }
     response.status(200).send('Bot berjalan')
   } catch (error) {
